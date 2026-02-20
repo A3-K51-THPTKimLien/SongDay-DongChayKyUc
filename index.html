@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Phân tích chi tiết bài thơ 'Sông Đáy' của Nguyễn Quang Thiều - tìm hiểu về tác giả, tác phẩm, và các phần thơ giàu cảm xúc." />
+  <meta name="keywords" content="Sông Đáy, Nguyễn Quang Thiều, bài thơ, phân tích văn học, ký ức, quê hương" />
+  <meta name="author" content="Nhóm Công Nghệ - 11A3 - THPT Kim Liên" />
+  <meta name="theme-color" content="#4DA3FF" />
+  
+  <!-- Open Graph Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sông Đáy - Dòng chảy ký ức" />
+  <meta property="og:description" content="Khám phá bài thơ kinh điển 'Sông Đáy' của Nguyễn Quang Thiều qua phân tích chi tiết, hình ảnh minh họa và tính năng nghe." />
+  <meta property="og:url" content="https://songday.example.com" />
+  <meta property="og:image" content="https://songday.example.com/og-image.jpg" />
+  <meta property="og:locale" content="vi_VN" />
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sông Đáy - Dòng chảy ký ức" />
+  <meta name="twitter:description" content="Phân tích bài thơ 'Sông Đáy' của Nguyễn Quang Thiều" />
+  <meta name="twitter:image" content="https://songday.example.com/og-image.jpg" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><style>.river{fill:none;stroke:%234DA3FF;stroke-width:3;stroke-linecap:round}.wave{fill:%234DA3FF;opacity:0.8}</style></defs><rect width='100' height='100' fill='%23000000'/><path class='river' d='M 10 50 Q 25 40, 40 50 T 70 50 T 100 50'/><path class='river' d='M 5 60 Q 20 55, 35 65 T 65 65 T 100 60'/><circle class='wave' cx='20' cy='50' r='3'/><circle class='wave' cx='50' cy='55' r='3'/><circle class='wave' cx='80' cy='48' r='3'/></svg>" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' fill='%23000000' rx='40'/><text x='90' y='100' font-size='80' fill='%234DA3FF' text-anchor='middle' font-family='serif' font-weight='bold'>山</text></svg>" />
+  
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="data:application/manifest+json,{%22name%22:%22Sông Đáy - Dòng chảy ký ức%22,%22short_name%22:%22Sông Đáy%22,%22description%22:%22Phân tích bài thơ Sông Đáy%22,%22start_url%22:%22/%22,%22display%22:%22standalone%22,%22background_color%22:%22%23000000%22,%22theme_color%22:%22%234DA3FF%22,%22icons%22:[{%22src%22:%22data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' fill='%23000000' rx='50'/><circle cx='96' cy='96' r='80' fill='none' stroke='%234DA3FF' stroke-width='4'/><path d='M 60 96 L 96 120 L 132 70' fill='none' stroke='%234DA3FF' stroke-width='4' stroke-linecap='round'/></svg>%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22}]}" />
+  
+  <title>Sông Đáy - Dòng chảy ký ức</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Learning Tasks Tracker -->
+<div class="todo-list">
+  <div class="todo-header">📚 Nhiệm vụ học tập</div>
+  <div class="todo-items">
+    <label class="todo-item" data-panels="author,work">
+      <input type="checkbox" class="todo-checkbox" />
+      <span class="todo-text">Tìm hiểu tác giả & tác phẩm</span>
+    </label>
+    <label class="todo-item" data-panels="content1,analysis1">
+      <input type="checkbox" class="todo-checkbox" />
+      <span class="todo-text">Phần 1: Ký ức tuổi thơ</span>
+    </label>
+    <label class="todo-item" data-panels="content2,analysis2">
+      <input type="checkbox" class="todo-checkbox" />
+      <span class="todo-text">Phần 2: Nỗi nhớ xa quê</span>
+    </label>
+    <label class="todo-item" data-panels="content3,analysis3">
+      <input type="checkbox" class="todo-checkbox" />
+      <span class="todo-text">Phần 3: Trở về quê hương</span>
+    </label>
+    <label class="todo-item" data-panels="conclusion,artistic,meaning">
+      <input type="checkbox" class="todo-checkbox" />
+      <span class="todo-text">Tổng kết giá trị bài thơ</span>
+    </label>
+  </div>
+</div>
+
+<!-- Progress River Tracking -->
+<div class="progress-river">
+  <div class="progress-label">0%</div>
+  <svg viewBox="0 0 50 320" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:rgba(77,163,255,0.5);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgba(77,163,255,0.85);stop-opacity:1" />
+      </linearGradient>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <clipPath id="riverClip">
+        <path id="riverShape" d="M 8,0 Q 15,8 25,0 Q 35,8 42,0 L 42,320 Q 35,312 25,320 Q 15,312 8,320 L 8,0 Z" />
+      </clipPath>
+    </defs>
+
+    <!-- Background border (invisible in clip, used for stroke) -->
+    <use href="#riverShape" class="river-bg" filter="url(#glow)" />
+
+    <!-- Water body: a rect clipped to the river silhouette and a wavy top -->
+    <g clip-path="url(#riverClip)">
+      <!-- make the rect span full SVG width so clipPath defines final silhouette fill -->
+      <rect id="waterRect" x="0" y="320" width="50" height="0" fill="url(#waterGradient)" />
+      <path id="waterWave" d="M0,320 Q12,312 25,320 Q38,312 50,320 L50,320 L0,320 Z" class="water-ripple" fill="rgba(255,255,255,0.06)" />
+    </g>
+
+    <!-- Stroke outline on top of everything -->
+    <use href="#riverShape" class="river-border" filter="url(#glow)" />
+  </svg>
+</div>
+
+<header>
+  <h1>SÔNG ĐÁY - DÒNG CHẢY KÝ ỨC</h1>
+</header>
+
+<!-- Divider I -->
+<div class="section-divider slide-up animate-delay-1">
+  <div class="divider-line">
+    <span class="divider-text">I. Tìm hiểu chung</span>
+  </div>
+</div>
+
+<div class="section-1 slide-in-left animate-delay-2">
+  <div class="intro">
+    <h3>Tìm hiểu về tác giả, tác phẩm</h3>
+  </div>
+  <div class="controls" role="tablist" aria-label="Menu điều khiển">
+    <button class="control-btn" data-target="author" aria-expanded="false">Tác giả</button>
+    <button class="control-btn" data-target="work" aria-expanded="false">Tác phẩm</button>
+  </div>
+
+  <div id="author" class="control-panel" aria-hidden="true">
+    <div class="panel-content">
+      <img src="author.jpg" alt="Ảnh tác giả" />
+      <div class="panel-text">
+        <h3>Nguyễn Quang Thiều</h3>
+        <p>- Nhà thơ Nguyễn Quang Thiều (sinh 1958) - một tiếng nói đương đại giàu cảm xúc, viết nhiều về ký ức, quê hương và con người Việt Nam.</p>
+        <p>- Quê: huyện Ứng Hòa, tỉnh Hà Tây (nay thuộc Hà Nội).</p>
+        <p>- Phong cách sáng tác: kết hợp tài tình giữa truyền thống và hiện đại cùng ngôn ngữ bay bổng, giàu sức gợi hình, gợi cảm.</p>
+        <p>- Hiện là Chủ tịch Hội Nhà văn Việt Nam; Phó Tổng thư ký thứ nhất Hội Nhà văn Á - Phi; Giám đốc - Tổng Biên tập Nhà xuất bản Hội Nhà văn.</p>
+        <p>- Dù đến với thơ khá muộn vào năm 25 tuổi, ông đã trở thành nhà thơ hiện đại tiêu biểu của làng văn học Việt Nam.</p>
+        <p>- Tác phẩm tiêu biểu: Thành phố chỉ sống 60 ngày (1991); Mùa hoa cải bên sông (1989); Cỏ hoang, tiểu thuyết (1992); Ngôi nhà tuổi 17 (1990); Cái chết của bầy mối (1991);...</p>
+        <div class="panel-actions">
+          <button class="feature-btn" onclick="openImage('author.jpg')">🔍 Xem ảnh</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="work" class="control-panel" aria-hidden="true">
+    <div class="panel-content">
+      <img src="work.webp" alt="Ảnh tác phẩm" />
+      <div class="panel-text">
+        <h3>Sông Đáy</h3>
+          <p>a) Hoàn cảnh sáng tác/ Xuất xứ:
+          <br>- Tác phẩm Sông Đáy sáng tác năm 1991, khi tác giả trở về thăm quê hương, thăm lại dòng sông Đáy thân yêu.
+          <br>- Trích trong tập thơ Sự mất ngủ của lửa (1992).</p>
+          <p>b) Thể thơ: Tự do</p>
+          <p>c) Phương thức biểu đạt: Biểu cảm</p>
+          <p>d) Hình tượng thơ: Hình tượng “Sông Đáy” xuyên suốt khắp chiều dài của tác phẩm, mang nhiều tầng ý nghĩa; “Sông Đáy” vừa là quê hương, tình mẫu tử, tình yêu, vừa là một người bạn vô hình ở bên tác giả.</p>
+          <div class="timeline-work">
+            <h4>e) Bố cục: 3 phần</h4>
+
+            <div class="timeline-row">
+              <div class="timeline-step">
+                <div class="step-number">1</div>
+                <p>Từ đầu đến “một mảnh sông đêm”<br>
+                → Sông Đáy trong miền ký ức thuở ấu thơ.</p>
+              </div>
+
+              <div class="timeline-step">
+                <div class="step-number">2</div>
+                <p>Từ “Năm tháng sống xa quê” đến “giàn giụa nước mưa sông”<br>
+                → Niềm nhớ thương quê nhà da diết trong những năm tháng xa quê.</p>
+              </div>
+
+              <div class="timeline-step">
+                <div class="step-number">3</div>
+                <p>Phần còn lại<br>
+                → Sông Đáy và nỗi xúc động nghẹn ngào ngày trở về quê hương.</p>
+              </div>
+            </div>
+          </div>
+        <div class="panel-actions">
+          <button class="feature-btn" onclick="openImage('work.webp')">🔍 Xem ảnh</button>
+          <a class="feature-btn" href="#" onclick="downloadExcerpt();return false;">⬇️ Tải đoạn trích</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Divider II -->
+<div class="section-divider slide-up animate-delay-3">
+  <div class="divider-line">
+    <span class="divider-text">II. Tìm hiểu chi tiết</span>
+  </div>
+</div>
+
+<!-- Section 2 -->
+<div class="section section-2 slide-in-right animate-delay-4">
+  <div class="intro">
+    <h3>Phần 1: Hình ảnh sông Đáy trong ký ức tuổi thơ</h3>
+  </div>
+  <div class="controls" role="tablist" aria-label="Menu phân tích">
+    <button class="control-btn" data-target="content1" aria-expanded="false">Nội dung</button>
+    <button class="control-btn" data-target="analysis1" aria-expanded="false">Phân tích</button>
+  </div>
+
+  <div id="content1" class="control-panel" aria-hidden="true">
+    <div class="panel-content">
+      <div class="panel-text">
+        
+        <p>“Sông Đáy chảy vào đời tôi
+        <br>Như mẹ tôi gánh nặng rẽ vào ngõ sau mỗi buổi chiều đi làm về vất vả
+        <br>Tôi dụi mặt vào lưng người đẫm mồ hôi mát một mảnh sông đêm”</p>
+        <div class="panel-actions">
+          <button class="feature-btn" onclick="playAudio('phan1.mp3')">🔊 Đọc</button>
+          <button class="feature-btn" onclick="stopAudio()">⏹️ Dừng đọc</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="analysis1" class="control-panel" aria-hidden="true">
+    <div class="panel-content">
+      <img src="phan1.png" alt="Ảnh minh họa" />
+      <div class="panel-text">
+        <h3>Phân tích</h3>
+        <p>- <b><i>Dòng sông huyết thống</i></b>: Là “dòng máu nóng” chảy trong tâm hồn, biểu tượng cho nguồn sống và sự gắn kết máu thịt với cội nguồn.
+        <p>- <b><i>Hình bóng người mẹ</i></b>: Gắn liền với sự tảo tần, nhọc nhằn của mẹ bên dòng nước lũ; sông và mẹ hòa nhập làm một.</p>
+        <p>- <b><i>Miền ký ức cảm giác</i></b>: Hiện hữu qua những hình ảnh đặc trưng: màu hoa xoan tím, cái rát bỏng của cát và những mùa nước nổi.</p>
+        <p>- <b><i>Nơi vỗ về cảm xúc</i></b>: Là không gian đứa trẻ được khóc, được bao dung và được sống thật với những yếu lòng đầu đời.</p>
+        <p>- <b><i>Biểu tượng vĩnh cửu</i></b>: Là điểm tựa tâm linh không đổi dời, đối lập với sự thay đổi và những lầm lạc khi trưởng thành của con người</p>
+        <p>- <b><i>Biện pháp nghệ thuật</i></b>: Sử dụng bút pháp siêu thực, hình ảnh biểu tượng giàu sức gợi (dòng máu, hoa xoan, cát), phép nhân hóa và so sánh độc đáo, cùng giọng điệu thơ thiết tha, trầm lắng.</p>
+        <p>⇒ <strong><em>Kết luận</strong></em>: Qua hình tượng sông Đáy, Nguyễn Quang Thiều không chỉ tái hiện một miền ký ức tuổi thơ dữ dội, nghĩa tình mà còn khẳng định sức mạnh của cội nguồn - nơi luôn bao dung, đón nhận và thức tỉnh lương tâm con người sau những biến đổi của cuộc đời.</p>
+        <div class="panel-actions">
+          <button class="feature-btn" onclick="openImage('phan1.png')">🔍 Xem ảnh</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3 -->
+<div class="section section-3 slide-in-left animate-delay-5">
+  <div class="intro">
+    <h3>Phần 2: Hình ảnh sông Đáy và nỗi nhớ quê nhà da diết trong những năm tháng xa quê</h3>
+  </div>
+  <div class="controls" role="tablist" aria-label="Menu đoạn thơ 2">
+    <button class="control-btn" data-target="content2" aria-expanded="false">Nội dung</button>
+    <button class="control-btn" data-target="analysis2" aria-expanded="false">Phân tích</button>
+  </div>
+
+  <div id="content2" class="control-panel" aria-hidden="true">
+    <div class="panel-content">
+      <div class="panel-text">
+        <p>“Năm tháng sống xa quê tôi như người bước hụt
+        <br>Cơn mơ vang lên tiếng cá quẫy tuột câu như một tiếng nấc
+        <br>Âm thầm vỡ trong tôi, âm thầm vỡ cuối nguồn
+        <br>Tỏa mát xuống cơn đau tôi là tóc mẹ bến mòn đứng đợi
+        <br>Một cây ngô cuối vụ khô gầy
+        <br>Suốt đời buồn trong tiếng lá reo.
+        <br>Những chiều xa quê tôi mong dòng sông dâng lên ngang trời cho tôi được nhìn thấy
+        <br>Cho đôi mắt nhớ thương của tôi như hai hốc đất ven bờ, 
+        <br>nơi những chú bống đến làm tổ được giàn dụa nước mưa sông.”</p>
+        <div class="panel-actions">
+          <button class="feature-btn" onclick="playAudio('phan2.mp3')">🔊 Đọc</button>
+          <button class="feature-btn" onclick="stopAudio()">⏹️ Dừng đọc</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="analysis2" class="control-panel" aria-hidden="true">
+    <div class="panel-content">
+      <img src="phan2.png" alt="Ảnh minh họa" />
+      <div class="panel-text">
+        <h3>Phân tích</h3>
+        <p>- <b><i>Biểu tượng của ký ức và tình mẫu tử</b></i>: Sông Đáy gắn liền với hình ảnh người mẹ, là nơi chứa đựng những kỉ niệm ấu thơ êm đềm, tạo nên một không gian nghệ thuật đầy hoài niệm.</p>
+        <p>- <b><i>Nỗi nhớ da diết khi xa quê</b></i>: Tác giả xa quê nhiều năm, nỗi nhớ ấy được thể hiện như một “nỗi đau quặn lòng”, một sự trăn trở không nguôi về dòng sông và những kỷ niệm xưa cũ.</p>
+        <p>- <b><i>Chứng nhân của thời gian</b></i>: Sông Đáy không chỉ là quê hương mà còn là người bạn, chứng nhân chứng kiến tình yêu đôi lứa và sự đổi thay của cuộc đời.</p>
+        <p>- <b><i>Khát vọng trở về</b></i>: Bài thơ là tiếng nấc nghẹn ngào, khát vọng được hòa nhập, đắm mình vào dòng sông quê, thể hiện tấm lòng biết ơn và tình yêu mãnh liệt với mảnh đất chôn nhau cắt rốn.</p>
+        <div class="panel-actions">
+          <button class="feature-btn" onclick="openImage('phan2.png')">🔍 Xem ảnh</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4 -->
+<div class="section section-4 slide-in-right animate-delay-7">
+  <div class="intro">
+    <h3>Phần 3: Hình ảnh sông Đáy và nỗi xúc động nghẹn ngào ngày trở về quê hương</h3>
+  </div>
+  <div class="controls" role="tablist" aria-label="Menu phần 3">
+    <button class="control-btn" data-target="content3" aria-expanded="false">Nội dung</button>
+    <button class="control-btn" data-target="analysis3" aria-expanded="false">Phân tích</button>
+  </div>
+
+  <div id="content3" class="control-panel" aria-hidden="true">
+    <div class="panel-content">
+      <div class="panel-text">
+        <p>“Sông Đáy ơi! Chiều nay tôi trở lại
+        <br>Những cánh buồm cổ tích đã bay xa về một niềm tức tưởi
+        <br>Em đã mang đôi môi màu dâu chín sang đò một ngày sông vắng nước
+        <br>Sông Đáy ơi, sông Đáy ơi… chiều nay tôi trở lại
+        <br>Mẹ tôi đã già như cát bên bờ
+        <br>Ôi mùi cát khô, mùi tóc mẹ tôi
+        <br>Tôi quì xuống vốc cát ấp vào mặt
+        <br>Tôi khóc.
+        <br>Cát từ mặt tôi chảy xuống dòng dòng.”</p>
+        <div class="panel-actions">
+          <button class="feature-btn" onclick="playAudio('phan3.mp3')">🔊 Đọc</button>
+          <button class="feature-btn" onclick="stopAudio()">⏹️ Dừng đọc</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="analysis3" class="control-panel" aria-hidden="true">
+    <div class="panel-content">
+      <img src="phan3.png" alt="Ảnh minh họa" />
+      <div class="panel-text">
+        <h3>Phân tích</h3>
+        <p>- Cụm từ <b><i>“sông Đáy ơi”</i></b> được lặp hai lần, như một tiếng gọi thiết tha báo hiệu sự trở về muộn màng.</p>
+        <p>- Nhà thơ quay trở về, nhưng mẹ không còn. Ông cố ôm cát vào lòng, khóc thương và muốn níu lại một chút <i><b>“hơi thở”</i></b> của người mẹ. Thi sĩ nhận ra sự thật phũ phàng: mẹ đã mất, giống như cát trôi tuột qua tay ông chảy xuống dòng dòng, không thể ở lại.</p>
+        <p>→ <b><i>“mẹ”</i></b> là hình ảnh luôn thường trực trong trái tim của người con, nhớ về quê hương là nhớ đến mẹ với biết bao kỉ niệm, cho thấy tình mẫu tử thiêng liêng sâu nặng</p>
+        <p>- <b><i>“Tôi khóc”</i></b>, giọt nước mắt của sự thương xót cũng là giọt nước mắt của hạnh phúc.</p>
+        <p>- Từ <b><i>“chảy”</i></b> ở đầu bài thơ được lặp lại. Giờ đây sông Đáy không chảy vào ông nữa, mà chính ông chảy vào sông Đáy. 
+        <br>→ Đó là sự hồi đáp của con người xa quê giờ đã quay trở về báo đáp quê hương, hồi đáp lại tình cảm của mẹ già, gợi sự ấm áp của tình người.</p>
+        <p>- Từ láy <b><i>“ròng ròng”</i></b> xoáy sâu vào nỗi đau, hiểu theo chiều hướng tích cực, là cái kết của khổ thơ, như một sự đoàn tụ của con người xa quê, ông quỳ xuống, ấp cát, đoàn tụ với quê hương sau bao ngày xa cách.</p>
+        <p>⇒ <b><i>Kết luận</i></b>: Sông Đáy hiện lên qua 3 mốc thời gian: còn nhỏ, lúc lớn lên đi xa quê và cuối cùng là ngày trở về, được sắp xếp theo trình tự quá khứ - hiện tại. Hình tượng ấy thể hiện chiều sâu của nỗi nhớ, có niềm vui, nỗi buồn khi xa quê. Qua đó, thấy được mối quan hệ mật thiết của sông Đáy với tác giả.</p>
+        <div class="panel-actions">
+          <button class="feature-btn" onclick="openImage('phan3.png')">🔍 Xem ảnh</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Divider III -->
+<div class="section-divider slide-up animate-delay-6">
+  <div class="divider-line">
+    <span class="divider-text">III. Tổng kết</span>
+  </div>
+</div>
+
+<!-- Section 5 -->
+<div class="section section-5 slide-in-left animate-delay-8">
+  <div class="intro">
+    <h3>Giá trị và ý nghĩa của "Sông Đáy"</h3>
+  </div>
+  <div class="controls" role="tablist" aria-label="Menu tổng kết">
+    <button class="control-btn" data-target="conclusion" aria-expanded="false">Nội dung</button>
+    <button class="control-btn" data-target="artistic" aria-expanded="false">Nghệ thuật</button>
+    <button class="control-btn" data-target="meaning" aria-expanded="false">Ý nghĩa</button>
+  </div>
+
+  <div id="conclusion" class="control-panel" aria-hidden="true">
+    <div class="panel-content">
+      <div class="panel-text">
+        <h3>Giá trị nội dung</h3>
+        <p>Bài thơ “Sông Đáy” của Nguyễn Quang Thiều là một công trình văn học tiêu biểu về chủ đề ký ức và quê hương. Qua ba phần cấu thành, tác phẩm tái hiện hành trình của tác giả từ tuổi thơ, qua những năm tháng xa quê, cho đến ngày trở về.</p>
+        <p><strong><em>Phần 1 - Tuổi thơ:</em></strong> Sông Đáy hiện lên như một phần không thể tách rời của tuổi thơ tác giả, gắn liền với ký ức ấm áp và hình bóng người mẹ.</p>
+        <p><strong><em>Phần 2 - Xa quê:</em></strong> Nỗi nhớ da diết được thể hiện qua những hình ảnh kỳ ảo và đầy cảm xúc cho thấy tác giả luôn chịu ảnh hưởng của quê hương dù ở bao xa.</p>
+        <p><strong><em>Phần 3 - Trở về:</em></strong> Sự trở về muộn màng của tác giả mang theo những xúc cảm phức tạp - vui và buồn, nhất là khi nhận ra sự thay đổi của thời gian.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="artistic" class="control-panel" aria-hidden="true">
+    <div class="panel-content">
+      <div class="panel-text">
+        <h3>Giá trị nghệ thuật</h3>
+        <p><strong>- Giá trị nghệ thuật:</strong> Bài thơ được viết theo thể tự do, vận dụng linh hoạt các phương thức biểu đạt như hình ảnh mang tính biểu tượng, so sánh độc đáo và phép lặp giàu ám ảnh; giọng điệu trầm lắng, thiết tha kết hợp với ngôn ngữ giàu nhạc điệu, tinh tế.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="meaning" class="control-panel" aria-hidden="true">
+    <div class="panel-content">
+      <div class="panel-text">
+        <h3>Ý nghĩa của bài thơ</h3>
+        <p><strong>- Giá trị nhân văn:</strong> Bài thơ ca ngợi tình mẫu tử, tình yêu quê hương và sự gắn bó với cối nguồn - những giá trị vĩnh cửu của con người.</p>
+        <p><strong>- Giá trị tâm lý:</strong> Phản ánh tâm lý của người ngoài cuộc, người xa quê, những nỗi đau và khát vọng được trở về những vùng ký ức thân yêu.</p>
+        <p><strong>- Ý nghĩa xã hội:</strong> Thể hiện mối liên hệ giữa con người, quê hương và tự sắc dân tộc, khẳng định vai trò của cội nguồn trong hình thành con người.</p>
+        <p><strong>→ Kết luận:</strong> “Sông Đáy” không chỉ là bài thơ về ký ức và quê hương mà còn là lời ca tụng tình yêu sâu sắc của con người đối với những giá trị tinh thần vĩnh cửu, khuyến khích độc giả trân trọng và trở về gần gũi hơn với cái gốc của mình.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Settings Section - Removed, merged into Guide Modal -->
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-contact">
+      <a href="mailto:contact@songday.com" class="contact-icon" title="Email" aria-label="Gửi email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://facebook.com" target="_blank" class="contact-icon" title="Facebook" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank" class="contact-icon" title="Instagram" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <button class="contact-icon" title="Cài đặt" aria-label="Cài đặt" onclick="openSettings()">
+        <i class="fas fa-cog"></i>
+      </button>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Sông Đáy - Dòng chảy ký ức | Nhóm Công Nghệ - 11A3 - THPT Kim Liên</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let currentAudio = null;
+  let currentVolume = localStorage.getItem('audioVolume') || 70;
+
+  // Disable browser's automatic scroll restoration and scroll to top
+  history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+  
+  function playAudio(filename){
+    // Dừng audio đang phát (nếu có)
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+    // Tạo và phát audio mới
+    currentAudio = new Audio(filename);
+    currentAudio.volume = currentVolume / 100;
+    currentAudio.play().catch(err => {
+      console.error('Lỗi khi phát audio:', err);
+      alert('Không thể phát file audio. Kiểm tra xem file ' + filename + ' có tồn tại không.');
+    });
+  }
+
+  function stopAudio(){
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+  }
+
+  function testAudio(){
+    playAudio('audiomau.mp3');
+  }
+
+  function setVolume(value){
+    currentVolume = value;
+    localStorage.setItem('audioVolume', value);
+    document.getElementById('volumeValue').textContent = value;
+    if (currentAudio) {
+      currentAudio.volume = value / 100;
+    }
+  }
+
+  // Control button interactions - toggle panels
+  document.querySelectorAll('.control-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const targetId = btn.dataset.target;
+      const panel = document.getElementById(targetId);
+      const isOpen = panel.classList.contains('open');
+      
+      if (isOpen) {
+        panel.classList.remove('open');
+        panel.setAttribute('aria-hidden','true');
+        btn.setAttribute('aria-expanded','false');
+      } else {
+        panel.classList.add('open');
+        panel.setAttribute('aria-hidden','false');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+
+
+  function openImage(src){
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('imgModalImg');
+    if (!modal || !modalImg) {
+      // fallback: open in new tab
+      window.open(src, '_blank');
+      return;
+    }
+    modalImg.src = src;
+    modal.setAttribute('aria-hidden', 'false');
+    modal.classList.add('visible');
+    document.body.classList.add('no-scroll');
+  }
+
+  function closeImage(){
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('imgModalImg');
+    if (!modal) return;
+    modal.classList.remove('visible');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('no-scroll');
+    // clear src after animation to release memory
+    setTimeout(()=>{ if (modalImg) modalImg.src = ''; }, 300);
+  }
+
+  function downloadExcerpt(){
+    const text = `
+    Sông Đáy chảy vào đời tôi
+    Như mẹ tôi gánh nặng rẽ vào ngõ sau mỗi buổi chiều đi làm về vất vả
+    Tôi dụi mặt vào lưng người đẫm mồ hôi mát một mảnh sông đêm
+    Năm tháng sống xa quê tôi như người bước hụt
+    Cơn mơ vang lên tiếng cá quẫy tuột câu như một tiếng nấc
+    Âm thầm vỡ trong tôi, âm thầm vỡ cuối nguồn
+    Tỏa mát xuống cơn đau tôi là tóc mẹ bến mòn đứng đợi
+    Một cây ngô cuối vụ khô gầy
+    Suốt đời buồn trong tiếng lá reo.
+    Những chiều xa quê tôi mong dòng sông dâng lên ngang trời cho tôi được nhìn thấy
+    Cho đôi mắt nhớ thương của tôi như hai hốc đất ven bờ, nơi những chú bống đến làm tổ được giàn dụa nước mưa sông.
+    Sông Đáy ơi! Chiều nay tôi trở lại
+    Những cánh buồm cổ tích đã bay xa về một niềm tức tưởi
+    Em đã mang đôi môi màu dâu chín sang đò một ngày sông vắng nước
+    Sông Đáy ơi, sông Đáy ơi… chiều nay tôi trở lại
+    Mẹ tôi đã già như cát bên bờ
+    Ôi mùi cát khô, mùi tóc mẹ tôi
+    Tôi quì xuống vốc cát ấp vào mặt
+    Tôi khóc.
+    Cát từ mặt tôi chảy xuống dòng dòng.
+    `;
+    const blob = new Blob([text], {type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = 'doan_trich.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  }
+
+
+
+  function changeTextSize(factor){
+    const current = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--base-scale')||1);
+    const next = current * factor;
+    document.documentElement.style.setProperty('--base-scale', next);
+  }
+
+  function toggleContrast(){ 
+    document.body.classList.toggle('high-contrast'); 
+  }
+
+  function resetDisplay(){
+    document.documentElement.style.setProperty('--base-scale', 1);
+    document.body.classList.remove('high-contrast');
+  }
+
+  // Guide modal functions
+  function openGuide(){
+    const modal = document.getElementById('guideModal');
+    if (modal) {
+      modal.classList.add('visible');
+      document.body.classList.add('no-scroll');
+    }
+  }
+
+  function closeGuide(){
+    stopAudio();
+    const modal = document.getElementById('guideModal');
+    if (modal) {
+      modal.classList.remove('visible');
+      document.body.classList.remove('no-scroll');
+    }
+    
+    // Trigger animations and auto-scroll experience after modal fades out
+    setTimeout(() => {
+      // Enable pointer events for progress river and todo list
+      const progressRiver = document.querySelector('.progress-river');
+      if (progressRiver) {
+        progressRiver.style.pointerEvents = 'auto';
+      }
+      
+      const todoList = document.querySelector('.todo-list');
+      if (todoList) {
+        todoList.style.pointerEvents = 'auto';
+      }
+      
+      // Calculate total scroll distance
+      const documentHeight = document.documentElement.scrollHeight;
+      const viewportHeight = window.innerHeight;
+      const maxScroll = Math.max(0, documentHeight - viewportHeight);
+      
+      // Manual smooth scroll function
+      function smoothScrollTo(target, duration) {
+        const start = window.scrollY;
+        const distance = target - start;
+        const startTime = Date.now();
+        
+        function scroll() {
+          const elapsed = Date.now() - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          window.scrollTo(0, start + distance * progress);
+          
+          if (progress < 1) {
+            requestAnimationFrame(scroll);
+          }
+        }
+        
+        scroll();
+      }
+      
+      // Scroll down in 3 seconds
+      const scrollDownDuration = 3000;
+      smoothScrollTo(maxScroll, scrollDownDuration);
+      
+      // After scroll down completes, scroll back to top in 1 second
+      setTimeout(() => {
+        smoothScrollTo(0, 1000);
+      }, scrollDownDuration + 200);
+      
+      // Add animations 1 second after scroll down starts
+      setTimeout(() => {
+        document.body.classList.add('animations-ready');
+      }, 1000);
+      
+    }, 400);
+  }
+
+  // Settings modal functions
+  function openSettings(){
+    const modal = document.getElementById('settingsModal');
+    if (modal) {
+      modal.classList.add('visible');
+      document.body.classList.add('no-scroll');
+      // Sync volume slider with current volume
+      const volumeSlider2 = document.getElementById('volumeSlider2');
+      if (volumeSlider2) {
+        volumeSlider2.value = currentVolume;
+        document.getElementById('volumeValue2').textContent = currentVolume;
+        volumeSlider2.addEventListener('input', (e) => {
+          setVolume(e.target.value);
+          document.getElementById('volumeValue2').textContent = e.target.value;
+        });
+      }
+    }
+  }
+
+  function closeSettings(){
+    stopAudio();
+    const modal = document.getElementById('settingsModal');
+    if (modal) {
+      modal.classList.remove('visible');
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
+  // Progress River Tracking - Button Click Based (First Open Only)
+  const totalControlButtons = document.querySelectorAll('.control-btn').length || 1;
+  const openedPanels = new Set(); // Track which panels have been opened
+
+  function updateProgressRiver() {
+    const openCount = openedPanels.size;
+    const percent = Math.min((openCount / totalControlButtons) * 100, 100);
+
+    const fullHeight = 320; // total svg height
+    // Use fullHeight as fillable area so 100% reaches the top of the silhouette
+    const fillHeight = (percent / 100) * fullHeight;
+    let y = Math.round(fullHeight - fillHeight);
+    if (y < 0) y = 0;
+
+    const waterRect = document.getElementById('waterRect');
+    const waterWave = document.getElementById('waterWave');
+    if (waterRect) {
+      waterRect.setAttribute('y', y);
+      waterRect.setAttribute('height', Math.max(0, Math.round(fillHeight)));
+      waterRect.setAttribute('x', 0);
+      waterRect.setAttribute('width', 50);
+    }
+    if (waterWave) {
+      const waveY = Math.max(0, y + 4);
+      const waveD = `M0,${waveY} Q12,${waveY - 4} 25,${waveY} Q38,${waveY - 4} 50,${waveY} L50,320 L0,320 Z`;
+      waterWave.setAttribute('d', waveD);
+    }
+
+    const progressLabel = document.querySelector('.progress-label');
+    if (progressLabel) progressLabel.textContent = Math.round(percent) + '%';
+  }
+
+  // Track button clicks - count immediately on first open
+  document.querySelectorAll('.control-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const panel = document.getElementById(targetId);
+
+      // Toggle handled elsewhere; here we only register the first-open event immediately
+      if (targetId && !openedPanels.has(targetId)) {
+        openedPanels.add(targetId);
+        updateProgressRiver();
+        updateTodoList();
+      }
+    });
+  });
+  
+  // Update todo list checkboxes based on opened panels
+  function updateTodoList() {
+    const todoItems = document.querySelectorAll('.todo-item');
+    todoItems.forEach(item => {
+      const panelIds = item.dataset.panels.split(',');
+      const allOpened = panelIds.every(id => openedPanels.has(id));
+      const checkbox = item.querySelector('input[type="checkbox"]');
+      if (allOpened) {
+        checkbox.checked = true;
+      }
+    });
+  }
+
+  // Handle todo item clicks - scroll to section and highlight buttons
+  document.querySelectorAll('.todo-item').forEach(todoItem => {
+    todoItem.addEventListener('click', (e) => {
+      // Get panel IDs from data attribute
+      const panelIds = todoItem.dataset.panels.split(',').map(id => id.trim());
+      
+      // Find the first section that contains these panels
+      let targetSection = null;
+      for (const panelId of panelIds) {
+        const panel = document.getElementById(panelId);
+        if (panel) {
+          const section = panel.closest('section, .section-1, .section-2, .section-3, .section-4, .section-5, .section-divider');
+          if (section && section.classList.contains('section-1') || section.classList.contains('section-2') 
+              || section.classList.contains('section-3') || section.classList.contains('section-4') 
+              || section.classList.contains('section-5')) {
+            targetSection = section;
+            break;
+          }
+        }
+      }
+
+      // Scroll to section centered in viewport
+      if (targetSection) {
+        const sectionRect = targetSection.getBoundingClientRect();
+        const scrollTop = window.scrollY + sectionRect.top - (window.innerHeight / 2) + (sectionRect.height / 2);
+        window.scrollTo({ top: scrollTop, behavior: 'smooth' });
+
+        // Highlight control buttons after scroll
+        setTimeout(() => {
+          panelIds.forEach(panelId => {
+            const btn = document.querySelector(`[data-target="${panelId.trim()}"]`);
+            if (btn) {
+              btn.classList.add('highlight-button');
+              // Remove highlight after 3 seconds
+              setTimeout(() => {
+                btn.classList.remove('highlight-button');
+              }, 3000);
+            }
+          });
+        }, 500);
+      }
+
+      // Prevent checkbox default toggle behavior
+      e.preventDefault();
+    });
+
+    // Prevent direct checkbox clicks from toggling
+    const checkbox = todoItem.querySelector('.todo-checkbox');
+    if (checkbox) {
+      checkbox.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+      });
+      checkbox.addEventListener('change', (e) => {
+        e.preventDefault();
+      });
+    }
+  });
+  
+  // Update progress on page load
+  window.addEventListener('load', () => {
+    // Clear guide viewed storage to always show guide on refresh
+    localStorage.removeItem('guideViewed');
+    
+    // Scroll to top of page
+    window.scrollTo(0, 0);
+    
+    // Check if user has seen guide before (optional)
+    if (!localStorage.getItem('guideViewed')) {
+      openGuide();
+      localStorage.setItem('guideViewed', 'true');
+    }
+    // Initialize volume slider
+    const volumeSlider = document.getElementById('volumeSlider');
+    if (volumeSlider) {
+      volumeSlider.value = currentVolume;
+      volumeSlider.addEventListener('input', (e) => setVolume(e.target.value));
+    }
+    document.getElementById('volumeValue').textContent = currentVolume;
+      // Initialize progress river visual
+      try { updateProgressRiver(); } catch (e) { /* ignore if SVG missing */ }
+      // Initialize todo list
+      try { updateTodoList(); } catch (e) { /* ignore if todo list missing */ }
+    
+    // Close settings modal when clicking on background
+    const settingsModal = document.getElementById('settingsModal');
+    if (settingsModal) {
+      settingsModal.addEventListener('click', (e) => {
+        if (e.target === settingsModal) {
+          closeSettings();
+        }
+      });
+    }
+    
+  });
+</script>
+
+<!-- Image modal -->
+<div id="imgModal" class="img-modal" role="dialog" aria-hidden="true">
+  <div class="img-modal-overlay" onclick="closeImage()"></div>
+  <div class="img-modal-content" role="document">
+    <button class="img-modal-close" aria-label="Đóng ảnh" onclick="closeImage()">✕</button>
+    <img id="imgModalImg" src="" alt="Full view" />
+  </div>
+</div>
+
+<!-- Welcome Guide Modal -->
+<div id="guideModal" class="guide-modal">
+  <div class="guide-content">
+    <h2>🌊 Sông Đáy - Dòng chảy ký ức</h2>
+    
+    <div class="guide-section">
+      <h3>👋 Chào mừng!</h3>
+      <p>Đây là một trải nghiệm học tập tương tác về bài thơ kinh điển "Sông Đáy" của Nguyễn Quang Thiều. Khi bấm nút "Bắt đầu", trang sẽ tự động cuộn xuống trong 3 giây, các phần nội dung sẽ hiện ra theo từng bước, tạo một hành trình trải nghiệm thơ mộc mạc.</p>
+    </div>
+
+    <div class="guide-section">
+      <h3>📚 Cấu trúc nội dung</h3>
+      <ul>
+        <li><strong>Phần I - Tìm hiểu chung:</strong> Tác giả Nguyễn Quang Thiều và tác phẩm "Sông Đáy"</li>
+        <li><strong>Phần II - Tìm hiểu chi tiết:</strong> 3 khúc thơ chính với phân tích sâu sắc</li>
+        <li><strong>Phần III - Tổng kết:</strong> Giá trị nghệ thuật và ý nghĩa của bài thơ</li>
+      </ul>
+    </div>
+
+    <div class="guide-section">
+      <h3>✅ Theo dõi tiến độ học tập</h3>
+      <ul>
+        <li><strong>📋 Danh sách nhiệm vụ (trái):</strong> Hiển thị 5 nhiệm vụ cần hoàn thành. Mỗi nhiệm vụ tự động đánh dấu khi bạn mở tất cả nội dung liên quan.</li>
+        <li><strong>🌊 Dòng sông tiến độ (phải):</strong> Mực nước sông tăng dần khi bạn khám phá nội dung. Đạt 100% khi hoàn thành tất cả nhiệm vụ.</li>
+        <li><strong>✨ Ánh sáng trắng:</strong> Khi bấm vào các mục trong to-do list, các nút tương ứng sẽ phát sáng trắng để bạn dễ nhận diện.</li>
+      </ul>
+    </div>
+
+    <div class="guide-section">
+      <h3>🎯 Tương tác với nội dung</h3>
+      <ul>
+        <li>Bấm các nút (Tác giả, Nội dung, Phân tích...) để mở/đóng từng phần nội dung.</li>
+        <li>Bấm vào item trong danh sách nhiệm vụ sẽ tự động cuộn đến section tương ứng.</li>
+        <li>Mỗi lần mở một nội dung mới, tiến độ sẽ tự cập nhật.</li>
+      </ul>
+    </div>
+
+    <div class="guide-section">
+      <h3>🔊 Tính năng đa phương tiện</h3>
+      <ul>
+        <li>🔊 <strong>Phát âm thanh:</strong> Bấm nút để nghe các đoạn thơ được đọc.</li>
+        <li>🔍 <strong>Xem ảnh:</strong> Bấm nút để phóng to hình ảnh minh họa.</li>
+        <li>⬇️ <strong>Tải đoạn trích:</strong> Bấm nút để tải toàn bộ bài thơ dưới dạng file txt.</li>
+      </ul>
+    </div>
+
+    <div class="guide-section">
+      <h3>⚙️ Tùy chỉnh hiển thị</h3>
+      <p>Điều chỉnh giao diện sao cho phù hợp với bạn:</p>
+      <div class="settings-grid">
+        <button onclick="changeTextSize(1.1)">A+</button>
+        <button onclick="changeTextSize(0.9)">A-</button>
+        <button onclick="toggleContrast()">🌓 Tương phản</button>
+        <button onclick="resetDisplay()">🔄 Đặt lại</button>
+      </div>
+      <p id="previewText" class="preview-text" style="margin-top: 16px; padding: 12px; background: rgba(255,255,255,0.06); border-radius: 6px; line-height: 1.6;">Đây là văn bản mẫu để xem trước hiệu ứng phóng to, thu nhỏ, tương phản. Hãy thử các nút trên để điều chỉnh kích thước chữ và độ tương phản.</p>
+    </div>
+
+    <div class="guide-section">
+      <h3>🔊 Cài đặt âm thanh</h3>
+      <p>Điều chỉnh mức âm lượng phù hợp:</p>
+      <div class="audio-settings">
+        <label for="volumeSlider" style="display: block; margin-bottom: 8px; color: rgba(255,255,255,0.8); font-size: 1rem;">Mức âm lượng: <span id="volumeValue" style="font-weight: 600; color: rgb(77, 163, 255);">70</span>%</label>
+        <input type="range" id="volumeSlider" min="0" max="100" value="70" style="width: 100%; cursor: pointer; margin-bottom: 12px;" title="Điều chỉnh âm lượng">
+        <button onclick="testAudio()" class="test-audio-btn">🔊 Phát thử âm thanh</button>
+      </div>
+    </div>
+
+    <div class="guide-actions">
+      <button class="guide-btn secondary" onclick="closeGuide()">Để sau</button>
+      <button class="guide-btn primary" onclick="closeGuide()">Bắt đầu</button>
+    </div>
+  </div>
+</div>
+
+<!-- Settings Modal -->
+<div id="settingsModal" class="guide-modal settings-modal">
+  <div class="guide-content">
+    <h2>⚙️ Cài đặt</h2>
+    
+    <div class="guide-section">
+      <h3>🔤 Tùy chỉnh hiển thị</h3>
+      <p>Điều chỉnh kích thước chữ để dễ đọc hơn:</p>
+      <div class="settings-grid">
+        <button onclick="changeTextSize(1.1)">A+</button>
+        <button onclick="changeTextSize(0.9)">A-</button>
+        <button onclick="toggleContrast()">🌓 Tương phản</button>
+        <button onclick="resetDisplay()">🔄 Đặt lại</button>
+      </div>
+      <p id="previewText2" class="preview-text" style="margin-top: 16px; padding: 12px; background: rgba(255,255,255,0.06); border-radius: 6px; line-height: 1.6;">Đây là văn bản mẫu để xem trước hiệu ứng phóng to, thu nhỏ, tương phản. Hãy thử các nút để tìm kích thước chữ phù hợp với bạn.</p>
+    </div>
+
+    <div class="guide-section">
+      <h3>🔊 Cài đặt âm thanh</h3>
+      <p>Điều chỉnh mức âm lượng cho các đoạn âm thanh:</p>
+      <div class="audio-settings">
+        <label for="volumeSlider2" style="display: block; margin-bottom: 8px; color: rgba(255,255,255,0.8); font-size: 1rem;">Mức âm lượng: <span id="volumeValue2" style="font-weight: 600; color: rgb(77, 163, 255);">70</span>%</label>
+        <input type="range" id="volumeSlider2" min="0" max="100" value="70" style="width: 100%; cursor: pointer; margin-bottom: 12px;" title="Điều chỉnh âm lượng">
+        <button onclick="testAudio()" class="test-audio-btn">🔊 Phát thử âm thanh</button>
+      </div>
+    </div>
+
+    <div class="guide-actions">
+      <button class="guide-btn primary" onclick="closeSettings()">Đóng</button>
+    </div>
+  </div>
+</div>
