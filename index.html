@@ -9,11 +9,14 @@
   <meta name="theme-color" content="#4DA3FF" />
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Sông Đáy - Dòng chảy ký ức" />
-  <meta property="og:description" content="Phân tích bài thơ Sông Đáy của Nguyễn Quang Thiều" />
+  <meta property="og:title" content="Sông Đáy - Dòng chảy ký ức | Phân tích bài thơ kinh điển" />
+  <meta property="og:description" content="Khám phá hành trình ký ức qua bài thơ Sông Đáy của Nguyễn Quang Thiều. Trải nghiệm tương tác với animations mượt mà, phân tích chi tiết 3 phần thơ, quản lý tiến độ học tập." />
+  <meta property="og:image" content="work.webp" />
   <meta property="og:locale" content="vi_VN" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sông Đáy - Dòng chảy ký ức" />
+  <meta name="twitter:description" content="Phân tích tương tác bài thơ Sông Đáy - hành trình ký ức, quê hương & tình mẫu tử" />
+  <meta name="twitter:image" content="work.webp" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><style>.river{fill:none;stroke:%234DA3FF;stroke-width:3;stroke-linecap:round}.wave{fill:%234DA3FF;opacity:0.8}</style></defs><rect width='100' height='100' fill='%23000000'/><path class='river' d='M 10 50 Q 25 40, 40 50 T 70 50 T 100 50'/><path class='river' d='M 5 60 Q 20 55, 35 65 T 65 65 T 100 60'/><circle class='wave' cx='20' cy='50' r='3'/><circle class='wave' cx='50' cy='55' r='3'/><circle class='wave' cx='80' cy='48' r='3'/></svg>" />
@@ -331,7 +334,7 @@
 <!-- Section 5 -->
 <div class="section section-5 slide-in-left animate-delay-8">
   <div class="intro">
-    <h3>Giá trị và ý nghĩa của "Sông Đáy"</h3>
+    <h3>Giá trị và ý nghĩa của “Sông Đáy”</h3>
   </div>
   <div class="controls" role="tablist" aria-label="Menu tổng kết">
     <button class="control-btn" data-target="conclusion" aria-expanded="false">Nội dung</button>
@@ -406,9 +409,9 @@
 <footer>
   <div class="footer-content">
     <div class="footer-contact">
-      <a href="mailto:tranletuananh919@gmail.com" class="contact-icon" title="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.facebook.com/tunabacata" target="_blank" class="contact-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/tunabaca/" target="_blank" class="contact-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:contact@songday.com" class="contact-icon" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://facebook.com" target="_blank" class="contact-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com" target="_blank" class="contact-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
       <button class="contact-icon" title="Cài đặt" onclick="openSettings()"><i class="fas fa-cog"></i></button>
     </div>
     <div class="footer-copyright">
@@ -774,43 +777,50 @@
         todoList.style.pointerEvents = 'auto';
       }
       
+      // Start animations immediately (0ms)
+      document.body.classList.add('animations-ready');
+      
       // Calculate total scroll distance
       const documentHeight = document.documentElement.scrollHeight;
       const viewportHeight = window.innerHeight;
       const maxScroll = Math.max(0, documentHeight - viewportHeight);
       
       // Manual smooth scroll function
-      function smoothScrollTo(target, duration) {
-        const start = window.scrollY;
-        const distance = target - start;
-        const startTime = Date.now();
-        
-        function scroll() {
-          const elapsed = Date.now() - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          window.scrollTo(0, start + distance * progress);
-          
-          if (progress < 1) {
-            requestAnimationFrame(scroll);
-          }
-        }
-        
-        scroll();
+      function smoothScrollTo(target, duration, delay = 0) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            const start = window.scrollY;
+            const distance = target - start;
+            const startTime = Date.now();
+            
+            function scroll() {
+              const elapsed = Date.now() - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              window.scrollTo(0, start + distance * progress);
+              
+              if (progress < 1) {
+                requestAnimationFrame(scroll);
+              } else {
+                resolve();
+              }
+            }
+            
+            scroll();
+          }, delay);
+        });
       }
       
-      // Scroll down in 3 seconds
-      const scrollDownDuration = 3000;
-      smoothScrollTo(maxScroll, scrollDownDuration);
+      // Scroll down starts at 5400ms (when section 3 starts), duration 4500ms
+      const scrollDownStartDelay = 5400;
+      const scrollDownDuration = 4500;
       
-      // After scroll down completes, scroll back to top in 1 second
-      setTimeout(() => {
-        smoothScrollTo(0, 1000);
-      }, scrollDownDuration + 200);
-      
-      // Add animations 1 second after scroll down starts
-      setTimeout(() => {
-        document.body.classList.add('animations-ready');
-      }, 1000);
+      // Scroll down
+      smoothScrollTo(maxScroll, scrollDownDuration, scrollDownStartDelay).then(() => {
+        // After scroll down completes, scroll back to top after all footer animations finish
+        // Scroll down ends at 9900ms, footer p ends at 11900ms
+        // So delay scroll up by 2000ms to start at 11900ms
+        smoothScrollTo(0, 1000, 2000);
+      });
       
     }, 400);
   }
@@ -1051,7 +1061,7 @@
       <h2>🌊 Sông Đáy - Dòng chảy ký ức</h2>
       <div class="guide-section">
         <h3>👋 Chào mừng</h3>
-        <p>Đây là một trải nghiệm học tập tương tác về bài thơ kinh điển “Sông Đáy” của Nguyễn Quang Thiều. Khi bấm nút [Bắt đầu], trang sẽ tự động cuộn xuống trong 3 giây, các phần nội dung sẽ hiện ra theo từng bước, tạo một hành trình trải nghiệm thơ mộc mạc.</p>
+        <p>Đây là một trải nghiệm học tập tương tác với tác phẩm “Sông Đáy” của Nguyễn Quang Thiều. Khi bấm nút [Bắt đầu], trang sẽ tự động hiển thị nội dung theo từng phần, giúp bạn khám phá từng khía cạnh của bài thơ một cách dễ dàng và thú vị.</p>
       </div>
 
       <div class="guide-section">
@@ -1063,10 +1073,10 @@
         </ul>
       </div>
       <div class="guide-actions">
-        <button class="guide-btn secondary" id="guideSkipBtn" onclick="closeGuide()">⏭️ Để sau</button>
-        <button class="guide-btn secondary" id="guideBackBtn" onclick="goToPreviousPage()">⬅️ Quay lại</button>
-        <button class="guide-btn secondary" id="guideNextBtn" onclick="goToNextPage()">Tiếp ➡️</button>
-        <button class="guide-btn primary" id="guideStartBtn" onclick="closeGuide()">✅ Bắt đầu</button>
+        <button class="guide-btn secondary" id="guideSkipBtn" onclick="closeGuide()">Để sau</button>
+        <button class="guide-btn secondary" id="guideBackBtn" onclick="goToPreviousPage()">Quay lại</button>
+        <button class="guide-btn secondary" id="guideNextBtn" onclick="goToNextPage()">Tiếp</button>
+        <button class="guide-btn primary" id="guideStartBtn" onclick="closeGuide()">Bắt đầu</button>
       </div>
     </div>
 
@@ -1076,34 +1086,34 @@
       <div class="guide-section">
         <h3>✅ Theo dõi tiến độ học tập</h3>
         <ul>
-          <li><strong>📋 Danh sách nhiệm vụ (trái):</strong> Hiển thị 5 nhiệm vụ cần hoàn thành. Mỗi nhiệm vụ tự động đánh dấu khi bạn mở tất cả nội dung liên quan.</li>
-          <li><strong>🌊 Dòng sông tiến độ (phải):</strong> Mực nước sông tăng dần khi bạn khám phá nội dung. Đạt 100% khi hoàn thành tất cả nhiệm vụ.</li>
-          <li><strong>✨ Ánh sáng dẫn lối:</strong> Khi bấm vào các mục trong [Danh sách nhiệm vụ], các nút tương ứng sẽ phát sáng trắng để bạn dễ nhận diện.</li>
+          <li><strong>📋 Danh sách nhiệm vụ (trái):</strong> 5 nhiệm vụ cần hoàn thành. Tự động đánh dấu khi mở tất cả nội dung liên quan.</li>
+          <li><strong>🌊 Dòng sông tiến độ (phải):</strong> Mực nước tăng dần (0% → 100%) khi khám phá nội dung từ các phần khác nhau.</li>
+          <li><strong>✨ Highlight động:</strong> Bấm danh sách nhiệm vụ → các nút tương ứng phát sáng để dẫn dắt.</li>
         </ul>
       </div>
 
       <div class="guide-section">
-        <h3>🎯 Tương tác với nội dung</h3>
+        <h3>🎯 Cách tương tác</h3>
         <ul>
-          <li>Bấm các nút [Tác giả], [Nội dung], [Phân tích], ... để mở/đóng từng phần nội dung.</li>
-          <li>Bấm vào các mục trong danh sách nhiệm vụ sẽ tự động cuộn đến phần tương ứng.</li>
-          <li>Mỗi lần mở một nội dung mới, tiến độ sẽ tự cập nhật.</li>
+          <li>Bấm [Tác giả], [Nội dung], [Phân tích] để mở/đóng từng panel nội dung.</li>
+          <li>Bấm mục trong danh sách nhiệm vụ → trang cuộn đến phần đó + highlight các nút.</li>
+          <li>Mỗi lần mở nội dung liên quan mới, tiến độ sông cập nhật tự động.</li>
         </ul>
       </div>
 
       <div class="guide-section">
         <h3>🔊 Tính năng đa phương tiện</h3>
         <ul>
-          <li>🔊 <strong>Phát âm thanh:</strong> Bấm nút để nghe các đoạn thơ được đọc.</li>
-          <li>🔍 <strong>Xem ảnh:</strong> Bấm nút để phóng to hình ảnh minh họa.</li>
-          <li>⬇️ <strong>Tải đoạn trích:</strong> Bấm nút để tải toàn bộ bài thơ dưới dạng file txt.</li>
+          <li>🎵 <strong>Âm thanh:</strong> Phát các đoạn thơ được đọc với điều chỉnh âm lượng.</li>
+          <li>🖼️ <strong>Ảnh minh họa:</strong> Phóng to hình ảnh liên quan đến từng phần thơ.</li>
+          <li>📥 <strong>Tải bài thơ:</strong> Tải toàn bộ nội dung dạng file .txt để sử dụng offline.</li>
         </ul>
       </div>
       <div class="guide-actions">
-        <button class="guide-btn secondary" id="guideSkipBtn" onclick="closeGuide()">⏭️ Để sau</button>
-        <button class="guide-btn secondary" id="guideBackBtn" onclick="goToPreviousPage()">⬅️ Quay lại</button>
-        <button class="guide-btn secondary" id="guideNextBtn" onclick="goToNextPage()">Tiếp ➡️</button>
-        <button class="guide-btn primary" id="guideStartBtn" onclick="closeGuide()" style="display: none;">✅ Bắt đầu</button>
+        <button class="guide-btn secondary" id="guideSkipBtn" onclick="closeGuide()">Để sau</button>
+        <button class="guide-btn secondary" id="guideBackBtn" onclick="goToPreviousPage()">Quay lại</button>
+        <button class="guide-btn secondary" id="guideNextBtn" onclick="goToNextPage()">Tiếp</button>
+        <button class="guide-btn primary" id="guideStartBtn" onclick="closeGuide()" style="display: none;">Bắt đầu</button>
       </div>
     </div>
 
@@ -1112,30 +1122,30 @@
       <h2>🌊 Sông Đáy - Dòng chảy ký ức</h2>
       <div class="guide-section">
         <h3>⚙️ Tùy chỉnh hiển thị</h3>
-        <p>Điều chỉnh giao diện sao cho phù hợp với bạn:</p>
+        <p>Điều chỉnh giao diện phù hợp với sở thích của bạn:</p>
         <div class="settings-grid">
           <button onclick="changeTextSize(1.1)">A+</button>
           <button onclick="changeTextSize(0.9)">A-</button>
-          <button onclick="toggleContrast()">🌓 Tương phản</button>
-          <button onclick="resetDisplay()">🔄 Đặt lại</button>
+          <button onclick="toggleContrast()">Tương phản</button>
+          <button onclick="resetDisplay()">Đặt lại</button>
         </div>
         <p id="previewText" class="preview-text" style="margin-top: 16px; padding: 12px; background: rgba(255,255,255,0.06); border-radius: 6px; line-height: 1.6;">Đây là văn bản mẫu để xem trước hiệu ứng phóng to (A+), thu nhỏ (A-), tương phản. Hãy thử các nút trên để điều chỉnh kích thước chữ và độ tương phản.</p>
       </div>
 
       <div class="guide-section">
         <h3>🔊 Cài đặt âm thanh</h3>
-        <p>Điều chỉnh mức âm lượng phù hợp:</p>
+        <p>Điều chỉnh âm lượng cho các đoạn thơ được đọc:</p>
         <div class="audio-settings">
-          <label for="volumeSlider" style="display: block; margin-bottom: 8px; color: rgba(255,255,255,0.8); font-size: 1rem;">Mức âm lượng: <span id="volumeValue" style="font-weight: 600; color: rgb(77, 163, 255);">70</span>%</label>
-          <input type="range" id="volumeSlider" min="0" max="100" value="70" style="width: 100%; cursor: pointer; margin-bottom: 12px;" title="Điều chỉnh âm lượng">
+          <label for="volumeSlider" style="display: block; margin-bottom: 8px; color: rgba(255,255,255,0.8); font-size: 1rem;">Âm lượng: <span id="volumeValue" style="font-weight: 600; color: rgb(77, 163, 255);">70</span>%</label>
+          <input type="range" id="volumeSlider" min="0" max="100" value="70" style="width: 100%; cursor: pointer; margin-bottom: 12px;" title="Điều chỉnh mức âm">
           <button onclick="testAudio()" class="test-audio-btn">🔊 Phát thử âm thanh</button>
         </div>
       </div>
       <div class="guide-actions">
-        <button class="guide-btn secondary" id="guideSkipBtn" onclick="closeGuide()" style="display: none;">⏭️ Để sau</button>
-        <button class="guide-btn secondary" id="guideBackBtn" onclick="goToPreviousPage()">⬅️ Quay lại</button>
-        <button class="guide-btn secondary" id="guideNextBtn" onclick="goToNextPage()" style="display: none;">Tiếp ➡️</button>
-        <button class="guide-btn primary" id="guideStartBtn" onclick="closeGuide()">✅ Bắt đầu</button>
+        <button class="guide-btn secondary" id="guideSkipBtn" onclick="closeGuide()" style="display: none;">Để sau</button>
+        <button class="guide-btn secondary" id="guideBackBtn" onclick="goToPreviousPage()">Quay lại</button>
+        <button class="guide-btn secondary" id="guideNextBtn" onclick="goToNextPage()" style="display: none;">Tiếp</button>
+        <button class="guide-btn primary" id="guideStartBtn" onclick="closeGuide()">Bắt đầu</button>
       </div>
     </div>
 
@@ -1154,8 +1164,8 @@
       <div class="settings-grid">
         <button onclick="changeTextSize(1.1)">A+</button>
         <button onclick="changeTextSize(0.9)">A-</button>
-        <button onclick="toggleContrast()">🌓 Tương phản</button>
-        <button onclick="resetDisplay()">🔄 Đặt lại</button>
+        <button onclick="toggleContrast()">Tương phản</button>
+        <button onclick="resetDisplay()">Đặt lại</button>
       </div>
       <p id="previewText2" class="preview-text" style="margin-top: 16px; padding: 12px; background: rgba(255,255,255,0.06); border-radius: 6px; line-height: 1.6;">Đây là văn bản mẫu để xem trước hiệu ứng phóng to, thu nhỏ, tương phản. Hãy thử các nút để tìm kích thước chữ phù hợp với bạn.</p>
     </div>
@@ -1166,7 +1176,7 @@
       <div class="audio-settings">
         <label for="volumeSlider2" style="display: block; margin-bottom: 8px; color: rgba(255,255,255,0.8); font-size: 1rem;">Mức âm lượng: <span id="volumeValue2" style="font-weight: 600; color: rgb(77, 163, 255);">70</span>%</label>
         <input type="range" id="volumeSlider2" min="0" max="100" value="70" style="width: 100%; cursor: pointer; margin-bottom: 12px;" title="Điều chỉnh âm lượng">
-        <button onclick="testAudio()" class="test-audio-btn">🔊 Phát thử âm thanh</button>
+        <button onclick="testAudio()" class="test-audio-btn">Phát thử âm thanh</button>
       </div>
     </div>
 
@@ -1174,5 +1184,4 @@
       <button class="guide-btn primary" onclick="closeSettings()">Đóng</button>
     </div>
   </div>
-
 </div>
