@@ -406,13 +406,46 @@
   </div>
 </div>
 
+<!-- Todo List Modal (Mobile) -->
+<div id="todoModal" class="guide-modal todo-modal">
+  <div class="guide-content">
+    <h2>📚 Nhiệm vụ học tập</h2>
+    <div class="todo-items">
+      <label class="todo-item" data-panels="author,work">
+        <input type="checkbox" class="todo-checkbox" />
+        <span class="todo-text">Tìm hiểu tác giả & tác phẩm</span>
+      </label>
+      <label class="todo-item" data-panels="content1,analysis1">
+        <input type="checkbox" class="todo-checkbox" />
+        <span class="todo-text">Phần 1: Ký ức tuổi thơ</span>
+      </label>
+      <label class="todo-item" data-panels="content2,analysis2">
+        <input type="checkbox" class="todo-checkbox" />
+        <span class="todo-text">Phần 2: Nỗi nhớ xa quê</span>
+      </label>
+      <label class="todo-item" data-panels="content3,analysis3">
+        <input type="checkbox" class="todo-checkbox" />
+        <span class="todo-text">Phần 3: Trở về quê hương</span>
+      </label>
+      <label class="todo-item" data-panels="conclusion,artistic,meaning">
+        <input type="checkbox" class="todo-checkbox" />
+        <span class="todo-text">Tổng kết giá trị bài thơ</span>
+      </label>
+    </div>
+    <div class="guide-actions">
+      <button class="guide-btn primary" onclick="closeTodoModal()">Đóng</button>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-content">
     <div class="footer-contact">
-      <a href="mailto:contact@songday.com" class="contact-icon" title="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://facebook.com" target="_blank" class="contact-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://instagram.com" target="_blank" class="contact-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:tranletuananh919@gmail.com" class="contact-icon" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://facebook.com/tunabacata" target="_blank" class="contact-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/tunabaca" target="_blank" class="contact-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
       <button class="contact-icon" title="Cài đặt" onclick="openSettings()"><i class="fas fa-cog"></i></button>
+      <button class="contact-icon todo-mobile-btn" title="Nhiệm vụ" onclick="openTodoModal()" style="display: none;">☑️</button>
     </div>
     <div class="footer-copyright">
       <p>&copy; 2026 Sông Đáy | Nhóm Công Nghệ - 11A3 - THPT Kim Liên</p>
@@ -489,10 +522,6 @@
     const modalImg = document.getElementById('imgModalImg');
     const closeBtn = document.querySelector('.img-modal-close');
     
-    // DEBUG: Log parameters
-    console.log('openImage called with:', { src, imgClass });
-    console.log('closeBtn found:', !!closeBtn);
-    
     if (!modal || !modalImg) {
       window.open(src, '_blank');
       return;
@@ -503,7 +532,6 @@
     modalImg.className = '';
     if (imgClass) {
       modalImg.classList.add(imgClass);
-      console.log('Image class added:', imgClass);
     }
     
     // Update close button
@@ -511,8 +539,6 @@
       closeBtn.className = 'img-modal-close';
       if (imgClass) {
         closeBtn.classList.add(`close-${imgClass}`);
-        console.log('Close button final classes:', closeBtn.className);
-        console.log('Close button classList:', Array.from(closeBtn.classList));
       }
     } else {
       console.error('Close button element not found!');
@@ -705,17 +731,17 @@
           let scrollUpDelay = 0;
           
           if (pageNum === 1) {
-            scrollDelay = 0;
-            scrollDuration = 0;
+            scrollDelay = 800;
+            scrollDuration = 700;
             scrollUpDelay = 0;
           } else if (pageNum === 2) {
-            scrollDelay = 1800;
-            scrollDuration = 2000;
-            scrollUpDelay = 500;
-          } else if (pageNum === 3) {
-            scrollDelay = 2600;
+            scrollDelay = 900;
             scrollDuration = 1000;
-            scrollUpDelay = 500;
+            scrollUpDelay = 250;
+          } else if (pageNum === 3) {
+            scrollDelay = 900;
+            scrollDuration = 900;
+            scrollUpDelay = 250;
           }
           
           if (scrollDuration > 0) {
@@ -810,16 +836,35 @@
         });
       }
       
-      // Scroll down starts at 5400ms (when section 3 starts), duration 4500ms
-      const scrollDownStartDelay = 5400;
-      const scrollDownDuration = 4500;
+      // Scroll down starts at 2700ms (when section 3 starts), duration 2250ms
+      const isMobile = window.innerWidth <= 576;
+      let scrollDownStartDelay, scrollDownDuration, scrollUpStartDelay;
+      
+      if (isMobile) {
+        // Mobile: Scroll down starts early for smooth scrolling (1500ms)
+        // Scroll down ends at 3900ms (1500 + 2400)
+        // Scroll up starts shortly after (900ms delay from scroll complete)
+        scrollDownStartDelay = 1500;
+        scrollDownDuration = 2400;  // Longer duration for smooth scrolling
+        scrollUpStartDelay = 1500;
+      } else {
+        // Desktop: Original timing
+        scrollDownStartDelay = 2700;
+        scrollDownDuration = 2250;
+        scrollUpStartDelay = 0;
+      }
       
       // Scroll down
       smoothScrollTo(maxScroll, scrollDownDuration, scrollDownStartDelay).then(() => {
-        // After scroll down completes, scroll back to top after all footer animations finish
-        // Scroll down ends at 9900ms, footer p ends at 11900ms
-        // So delay scroll up by 2000ms to start at 11900ms
-        smoothScrollTo(0, 1000, 2000);
+        // After scroll down completes, scroll back to top
+        if (isMobile) {
+          // Mobile: Scroll up when footer p starts animating
+          smoothScrollTo(0, 1000, scrollUpStartDelay);
+        } else {
+          // Desktop: Scroll down ends at 4950ms, footer p ends at 6500ms
+          // So delay scroll up by 1550ms to start at 6500ms
+          smoothScrollTo(0, 1000, 1550);
+        }
       });
       
     }, 400);
@@ -832,53 +877,10 @@
       modal.classList.add('visible', 'animating');
       document.body.classList.add('no-scroll');
       
-      // Scroll to top of settings modal (like guide modal)
-      const settingsContent = modal.querySelector('.guide-content');
-      if (settingsContent) {
-        settingsContent.scrollTop = 0;
-        
-        const scrollDownDelay = 3200;
-        const scrollDuration = 800;
-        
-        setTimeout(() => {
-          let scrollStart = settingsContent.scrollTop;
-          let scrollEnd = settingsContent.scrollHeight - settingsContent.clientHeight;
-          let startTime = null;
-          
-          const animateScroll = (currentTime) => {
-            if (startTime === null) startTime = currentTime;
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / scrollDuration, 1);
-            settingsContent.scrollTop = scrollStart + (scrollEnd - scrollStart) * progress;
-            
-            if (progress < 1) {
-              requestAnimationFrame(animateScroll);
-            }
-          };
-          
-          requestAnimationFrame(animateScroll);
-        }, scrollDownDelay);
-        
-        const scrollUpDelay = 4000;
-        
-        setTimeout(() => {
-          let scrollStart = settingsContent.scrollTop;
-          let scrollEnd = 0;
-          let startTime = null;
-          
-          const animateScroll = (currentTime) => {
-            if (startTime === null) startTime = currentTime;
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / scrollDuration, 1);
-            settingsContent.scrollTop = scrollStart - (scrollStart - scrollEnd) * progress;
-            
-            if (progress < 1) {
-              requestAnimationFrame(animateScroll);
-            }
-          };
-          
-          requestAnimationFrame(animateScroll);
-        }, scrollUpDelay);
+      // Reset scroll position to top immediately
+      const guideContent = modal.querySelector('.guide-content');
+      if (guideContent) {
+        guideContent.scrollTop = 0;
       }
       
       const volumeSlider2 = document.getElementById('volumeSlider2');
@@ -890,12 +892,85 @@
           document.getElementById('volumeValue2').textContent = e.target.value;
         });
       }
+      
+      // Add scroll animation on mobile
+      const isMobile = window.innerWidth <= 576;
+      if (isMobile) {
+        // Manual smooth scroll function for settings modal
+        function smoothScrollSettingsTo(target, duration, delay = 0) {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              const guideContent = modal.querySelector('.guide-content');
+              if (!guideContent) {
+                resolve();
+                return;
+              }
+              const start = guideContent.scrollTop;
+              const startTime = performance.now();
+              
+              function scroll(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                guideContent.scrollTop = start + (target - start) * progress;
+                
+                if (progress < 1) {
+                  requestAnimationFrame(scroll);
+                } else {
+                  guideContent.scrollTop = target;
+                  resolve();
+                }
+              }
+              requestAnimationFrame(scroll);
+            }, delay);
+          });
+        }
+        
+        // Wait for layout to calculate, then perform scroll animation
+        setTimeout(() => {
+          const guideContent = modal.querySelector('.guide-content');
+          if (guideContent) {
+            // Force reflow to ensure dimensions are calculated
+            void guideContent.offsetHeight;
+            const maxScroll = Math.max(0, guideContent.scrollHeight - guideContent.clientHeight);
+            
+            if (maxScroll > 0) {
+              // Scroll down starting at 900ms, duration 700ms (fast scroll)
+              smoothScrollSettingsTo(maxScroll, 700, 900).then(() => {
+                // Scroll up starting 600ms after scroll down completes (at 2200ms total)
+                smoothScrollSettingsTo(0, 1000, 600);
+              });
+            }
+          }
+        }, 100);
+      }
     }
   }
 
   function closeSettings(){
     stopAudio();
     const modal = document.getElementById('settingsModal');
+    if (modal) {
+      modal.classList.remove('visible', 'animating');
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
+  // Todo modal functions
+  function openTodoModal(){
+    const modal = document.getElementById('todoModal');
+    if (modal) {
+      modal.classList.add('visible');
+      document.body.classList.add('no-scroll');
+      
+      // Trigger animation after brief delay
+      setTimeout(() => {
+        modal.classList.add('animating');
+      }, 50);
+    }
+  }
+
+  function closeTodoModal(){
+    const modal = document.getElementById('todoModal');
     if (modal) {
       modal.classList.remove('visible', 'animating');
       document.body.classList.remove('no-scroll');
@@ -990,16 +1065,27 @@
         // Highlight control buttons after scroll
         setTimeout(() => {
           panelIds.forEach(panelId => {
-            const btn = document.querySelector(`[data-target="${panelId.trim()}"]`);
+            const trimmedId = panelId.trim();
+            const btn = document.querySelector(`[data-target="${trimmedId}"]`);
             if (btn) {
-              btn.classList.add('highlight-button');
-              // Remove highlight after 3 seconds
+              btn.style.setProperty('opacity', '1', 'important');
+              btn.style.setProperty('box-shadow', '0 0 12px rgba(255, 255, 255, 0.6), 0 0 25px rgba(255, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.2)', 'important');
+              btn.style.setProperty('background', 'rgba(255, 255, 255, 0.1)', 'important');
+              
               setTimeout(() => {
-                btn.classList.remove('highlight-button');
-              }, 3000);
+                btn.style.opacity = '';
+                btn.style.boxShadow = '';
+                btn.style.background = '';
+              }, 800);
             }
           });
-        }, 500);
+        }, 300);
+        // Close todo modal on mobile after scrolling
+        if (window.innerWidth <= 576) {
+          setTimeout(() => {
+            closeTodoModal();
+          }, 500);
+        }
       }
 
       // Prevent checkbox default toggle behavior
